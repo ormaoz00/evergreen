@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אברגריין דיגיטל | שיווק דיגיטלי שמניב תוצאות</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        assistant: ['Assistant', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#1a1a2e',
+                            deeper: '#16213e',
+                            mid: '#0f3460',
+                            accent: '#e94560',
+                            gold: '#f5a623',
+                            green: '#27ae60',
+                            light: '#f8f9fa',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Assistant', sans-serif; }
+        html { scroll-behavior: smooth; }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.5); }
+            50% { box-shadow: 0 0 0 12px rgba(233, 69, 96, 0); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .counter-section {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+        }
+
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .process-line::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: 50%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to left, #e94560, #f5a623);
+            z-index: 0;
+        }
+
+        .cta-gradient {
+            background: linear-gradient(135deg, #e94560 0%, #c0392b 100%);
+        }
+
+        .section-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .form-section-bg {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+        }
+
+        .ribbon {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 75px;
+            height: 75px;
+            overflow: hidden;
+        }
+        .ribbon span {
+            position: absolute;
+            display: block;
+            width: 120px;
+            padding: 6px 0;
+            background: #e94560;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            transform: rotate(45deg);
+            top: 18px;
+            left: -28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #e94560;
+            box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-assistant">
+
+    <!-- ============ TOP BAR ============ -->
+    <div class="bg-brand-dark text-white text-sm py-2">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center flex-wrap gap-2">
+            <div class="flex items-center gap-4">
+                <span class="flex items-center gap-1">
+                    <svg class="w-4 h-4 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+                    <span dir="ltr">052-000-0000</span>
+                </span>
+                <span class="flex items-center gap-1">
+                    <svg class="w-4 h-4 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+                    info@evergreen-digital.co.il
+                </span>
+            </div>
+            <div class="text-brand-gold font-semibold">🔥 מקומות מוגבלים למנויים חדשים החודש</div>
+        </div>
+    </div>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-brand-accent rounded-lg flex items-center justify-center">
+                    <span class="text-white font-extrabold text-xl">E</span>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold text-brand-dark">Evergreen</span>
+                    <span class="text-xl font-extrabold text-brand-accent"> Digital</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-600">
+                <a href="#services" class="hover:text-brand-accent transition">שירותים</a>
+                <a href="#process" class="hover:text-brand-accent transition">תהליך העבודה</a>
+                <a href="#results" class="hover:text-brand-accent transition">תוצאות</a>
+                <a href="#testimonials" class="hover:text-brand-accent transition">לקוחות ממליצים</a>
+                <a href="#contact" class="bg-brand-accent text-white px-5 py-2 rounded-full hover:bg-red-600 transition">דברו איתנו</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-4 pb-4">
+            <a href="#services" class="block py-2 text-gray-700 font-semibold hover:text-brand-accent">שירותים</a>
+            <a href="#process" class="block py-2 text-gray-700 font-semibold hover:text-brand-accent">תהליך העבודה</a>
+            <a href="#results" class="block py-2 text-gray-700 font-semibold hover:text-brand-accent">תוצאות</a>
+            <a href="#testimonials" class="block py-2 text-gray-700 font-semibold hover:text-brand-accent">לקוחות ממליצים</a>
+            <a href="#contact" class="block mt-2 text-center bg-brand-accent text-white px-5 py-2 rounded-full">דברו איתנו</a>
+        </div>
+    </nav>
+
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero-gradient text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 right-10 w-72 h-72 bg-brand-accent rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 left-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 py-20 md:py-28 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Right Side - Text -->
+                <div class="space-y-6">
+                    <div class="inline-block bg-brand-accent/20 border border-brand-accent/40 text-brand-accent px-4 py-1.5 rounded-full text-sm font-semibold">
+                        🚀 סוכנות שיווק דיגיטלי מובילה
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+                        הגיע הזמן שהעסק שלך
+                        <span class="text-brand-accent"> יגדל באמת</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
+                        אנחנו עוזרים לעסקים להגדיל את נוכחותם הדיגיטלית, להביא לידים איכותיים ולהפוך תנועה לאינטרנט ללקוחות משלמים — עם אסטרטגיות מוכחות ומבוססות נתונים.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#contact" class="btn-pulse bg-brand-accent hover:bg-red-600 text-white font-bold px-8 py-4 rounded-full text-lg transition inline-flex items-center gap-2">
+                            בואו נתחיל
+                            <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                        <a href="#services" class="border-2 border-white/30 hover:border-white text-white font-bold px-8 py-4 rounded-full text-lg transition">
+                            מה אנחנו מציעים?
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-6 pt-4 text-sm text-gray-400">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            ללא התחייבות
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            ייעוץ ראשוני חינם
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            תוצאות מהחודש הראשון
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left Side - Form -->
+                <div class="bg-white rounded-2xl shadow-2xl p-8 text-gray-800 relative" id="contact">
+                    <div class="ribbon"><span>חינם!</span></div>
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-extrabold text-brand-dark">קבלו ייעוץ אסטרטגי חינם</h3>
+                        <p class="text-gray-500 mt-2">השאירו פרטים ונחזור אליכם תוך שעות</p>
+                    </div>
+                    <form id="leadForm" class="space-y-4">
+                        <div>
+                            <input type="text" name="name" placeholder="שם מלא" required
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-base transition" />
+                        </div>
+                        <div>
+                            <input type="email" name="email" placeholder="כתובת אימייל" required
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-base transition" />
+                        </div>
+                        <div>
+                            <input type="tel" name="phone" placeholder="מספר טלפון" required
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-base transition" />
+                        </div>
+                        <div>
+                            <select name="service" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-base text-gray-500 transition bg-white">
+                                <option value="" disabled selected>באיזה שירות מתעניינים?</option>
+                                <option value="seo">קידום אורגני (SEO)</option>
+                                <option value="ppc">קמפיינים ממומנים (PPC)</option>
+                                <option value="social">שיווק ברשתות חברתיות</option>
+                                <option value="content">שיווק תוכן</option>
+                                <option value="full">חבילה מלאה</option>
+                            </select>
+                        </div>
+                        <button type="submit"
+                                class="w-full bg-brand-accent hover:bg-red-600 text-white font-bold py-4 rounded-xl text-lg transition flex items-center justify-center gap-2">
+                            שלחו לי את הייעוץ החינמי
+                            <svg class="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </button>
+                        <p class="text-xs text-center text-gray-400 mt-2">🔒 הפרטים שלכם מאובטחים ולא יועברו לצד שלישי</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Wave Separator -->
+        <div class="absolute bottom-0 left-0 w-full">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z" fill="white"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ============ TRUST BAR ============ -->
+    <section class="py-10 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-center text-gray-400 text-sm font-semibold mb-6">עובדים עם הפלטפורמות המובילות</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-14 opacity-50 grayscale">
+                <div class="text-2xl font-extrabold text-gray-400">Google</div>
+                <div class="text-2xl font-extrabold text-gray-400">Meta</div>
+                <div class="text-2xl font-extrabold text-gray-400">TikTok</div>
+                <div class="text-2xl font-extrabold text-gray-400">LinkedIn</div>
+                <div class="text-2xl font-extrabold text-gray-400">Instagram</div>
+                <div class="text-2xl font-extrabold text-gray-400">YouTube</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PROBLEM / PAIN SECTION ============ -->
+    <section class="py-16 md:py-24 bg-gray-50 section-fade">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-6">
+                נמאס לכם לבזבז תקציב על שיווק
+                <span class="text-brand-accent"> שלא עובד?</span>
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-10">
+                בעלי עסקים רבים משקיעים אלפי שקלים בפרסום ולא רואים תוצאות. הם לא יודעים מה עובד ומה לא, הקמפיינים לא ממוקדים, ואין להם שקיפות על הביצועים. זה בדיוק מה שאנחנו פותרים.
+            </p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <div class="text-4xl mb-3">😤</div>
+                    <h4 class="font-bold text-lg mb-2">קמפיינים לא ממוקדים</h4>
+                    <p class="text-gray-500 text-sm">התקציב נשרף על קהלים לא רלוונטיים בלי אופטימיזציה מתמדת</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <div class="text-4xl mb-3">📉</div>
+                    <h4 class="font-bold text-lg mb-2">אין שקיפות בנתונים</h4>
+                    <p class="text-gray-500 text-sm">אי אפשר לדעת מה ה-ROI האמיתי כשאין דוחות ומעקב מסודר</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <div class="text-4xl mb-3">🕐</div>
+                    <h4 class="font-bold text-lg mb-2">חוסר זמן ומשאבים</h4>
+                    <p class="text-gray-500 text-sm">אתם עסוקים בלנהל את העסק ואין לכם זמן להתעסק עם השיווק</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SERVICES SECTION ============ -->
+    <section id="services" class="py-16 md:py-24 bg-white section-fade">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="text-brand-accent font-bold text-sm uppercase tracking-wider">השירותים שלנו</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mt-2">
+                    פתרונות שיווק דיגיטלי
+                    <span class="text-brand-accent"> מקצה לקצה</span>
+                </h2>
+                <p class="text-gray-500 mt-3 max-w-2xl mx-auto">כל מה שהעסק שלך צריך כדי לצמוח בדיגיטל — תחת קורת גג אחת</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="card-hover bg-white border-2 border-gray-100 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-accent transition">
+                        <svg class="w-7 h-7 text-brand-accent group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">קידום אורגני (SEO)</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">אופטימיזציה מלאה לאתר שלך כדי להופיע ראשון בגוגל — מחקר מילות מפתח, תוכן, בניית קישורים וטכני SEO.</p>
+                    <div class="mt-4 text-brand-accent font-semibold text-sm flex items-center gap-1">
+                        <span>למידע נוסף</span>
+                        <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div class="card-hover bg-white border-2 border-gray-100 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-accent transition">
+                        <svg class="w-7 h-7 text-blue-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">קמפיינים ממומנים (PPC)</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">ניהול קמפיינים בגוגל, פייסבוק, אינסטגרם וטיקטוק עם מיקוד מדויק, אופטימיזציה שוטפת ו-ROI מקסימלי.</p>
+                    <div class="mt-4 text-brand-accent font-semibold text-sm flex items-center gap-1">
+                        <span>למידע נוסף</span>
+                        <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div class="card-hover bg-white border-2 border-gray-100 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-accent transition">
+                        <svg class="w-7 h-7 text-purple-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">שיווק ברשתות חברתיות</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">ניהול מקצועי של הפרופילים העסקיים שלך — תוכן, עיצוב, קהילה ואינטראקציה שמגדילים מעורבות ומותג.</p>
+                    <div class="mt-4 text-brand-accent font-semibold text-sm flex items-center gap-1">
+                        <span>למידע נוסף</span>
+                        <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+                <!-- Service 4 -->
+                <div class="card-hover bg-white border-2 border-gray-100 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-accent transition">
+                        <svg class="w-7 h-7 text-green-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">שיווק תוכן ובלוג</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">יצירת תוכן איכותי שמושך את הקהל הנכון, בונה אמון ומחזק את הסמכות שלך בתחום — בלוג, מאמרים וניוזלטרים.</p>
+                    <div class="mt-4 text-brand-accent font-semibold text-sm flex items-center gap-1">
+                        <span>למידע נוסף</span>
+                        <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+                <!-- Service 5 -->
+                <div class="card-hover bg-white border-2 border-gray-100 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="w-14 h-14 bg-yellow-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-accent transition">
+                        <svg class="w-7 h-7 text-yellow-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">בניית אתרים ודפי נחיתה</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">עיצוב ופיתוח אתרים ממוקדי המרה — מהירים, מותאמים למובייל, עם UX שמוביל את הגולש לפעולה.</p>
+                    <div class="mt-4 text-brand-accent font-semibold text-sm flex items-center gap-1">
+                        <span>למידע נוסף</span>
+                        <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+                <!-- Service 6 -->
+                <div class="card-hover bg-white border-2 border-gray-100 rounded-2xl p-8 relative overflow-hidden group">
+                    <div class="w-14 h-14 bg-orange-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-accent transition">
+                        <svg class="w-7 h-7 text-orange-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">אנליטיקס ודוחות ביצועים</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">מעקב מלא אחרי כל שקל שאתם משקיעים — דשבורדים, דוחות חודשיים ותובנות מבוססות דאטה לשיפור מתמיד.</p>
+                    <div class="mt-4 text-brand-accent font-semibold text-sm flex items-center gap-1">
+                        <span>למידע נוסף</span>
+                        <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ COUNTERS / STATS ============ -->
+    <section id="results" class="counter-section py-16 md:py-20 text-white section-fade">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold">מספרים שמדברים
+                    <span class="text-brand-accent"> בעד עצמם</span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl md:text-5xl font-extrabold text-brand-accent counter" data-target="150">0</div>
+                    <div class="text-sm text-gray-300 mt-2">לקוחות מרוצים</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-extrabold text-brand-gold counter" data-target="2500">0</div>
+                    <div class="text-sm text-gray-300 mt-2">קמפיינים שנוהלו</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-extrabold text-green-400 counter" data-target="340">0</div>
+                    <div class="text-sm text-gray-300 mt-2">אחוז צמיחה ממוצע</div>
+                </div>
+                <div>
+                    <div class="text-4xl md:text-5xl font-extrabold text-blue-400 counter" data-target="8">0</div>
+                    <div class="text-sm text-gray-300 mt-2">שנות ניסיון בתחום</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PROCESS SECTION ============ -->
+    <section id="process" class="py-16 md:py-24 bg-white section-fade">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="text-brand-accent font-bold text-sm uppercase tracking-wider">איך זה עובד</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mt-2">
+                    4 צעדים פשוטים
+                    <span class="text-brand-accent"> לצמיחה דיגיטלית</span>
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8 relative">
+                <!-- Step 1 -->
+                <div class="text-center relative z-10">
+                    <div class="w-16 h-16 bg-brand-accent rounded-full flex items-center justify-center text-white text-2xl font-extrabold mx-auto mb-4 shadow-lg">1</div>
+                    <h4 class="font-bold text-lg mb-2">שיחת היכרות</h4>
+                    <p class="text-gray-500 text-sm">נלמד על העסק, המטרות והאתגרים שלכם בשיחה קצרה וממוקדת</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="text-center relative z-10">
+                    <div class="w-16 h-16 bg-brand-accent rounded-full flex items-center justify-center text-white text-2xl font-extrabold mx-auto mb-4 shadow-lg">2</div>
+                    <h4 class="font-bold text-lg mb-2">בניית אסטרטגיה</h4>
+                    <p class="text-gray-500 text-sm">נבנה תוכנית שיווק מותאמת אישית עם יעדים ברורים ולוח זמנים</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="text-center relative z-10">
+                    <div class="w-16 h-16 bg-brand-accent rounded-full flex items-center justify-center text-white text-2xl font-extrabold mx-auto mb-4 shadow-lg">3</div>
+                    <h4 class="font-bold text-lg mb-2">ביצוע ואופטימיזציה</h4>
+                    <p class="text-gray-500 text-sm">נריץ את הקמפיינים, ננטר ביצועים ונבצע אופטימיזציות בזמן אמת</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="text-center relative z-10">
+                    <div class="w-16 h-16 bg-brand-accent rounded-full flex items-center justify-center text-white text-2xl font-extrabold mx-auto mb-4 shadow-lg">4</div>
+                    <h4 class="font-bold text-lg mb-2">דיווח וצמיחה</h4>
+                    <p class="text-gray-500 text-sm">תקבלו דוחות שקופים, נתונים ברורים וצמיחה שנמדדת כל חודש</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY US / BENEFITS ============ -->
+    <section class="py-16 md:py-24 bg-gray-50 section-fade">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-brand-accent font-bold text-sm uppercase tracking-wider">למה אברגריין דיגיטל</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mt-2 mb-6">
+                        לא סתם עוד סוכנות —
+                        <span class="text-brand-accent"> שותפים לצמיחה</span>
+                    </h2>
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">גישה מבוססת נתונים</h4>
+                                <p class="text-gray-500 text-sm">כל החלטה שלנו מתבססת על דאטה. אנחנו לא מנחשים — אנחנו מודדים, מנתחים ומשפרים.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">שקיפות מלאה</h4>
+                                <p class="text-gray-500 text-sm">תמיד תדעו בדיוק לאן הולך כל שקל ומה התוצאות — עם דוחות מפורטים ודשבורד בזמן אמת.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 24"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">ליווי אישי ומקצועי</h4>
+                                <p class="text-gray-500 text-sm">מנהל חשבון ייעודי שמכיר את העסק שלכם ומנגיש אתכם — לא רק מספר בתיק.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">ללא התחייבות ארוכת טווח</h4>
+                                <p class="text-gray-500 text-sm">אנחנו בטוחים בתוצאות שלנו, ולכן לא מכריחים אתכם לחוזים ארוכים. התוצאות מדברות.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-brand-dark rounded-2xl p-8 text-white">
+                        <div class="text-center mb-6">
+                            <div class="text-5xl font-extrabold text-brand-accent">94%</div>
+                            <p class="text-gray-300 mt-2">מלקוחותינו חוו עלייה משמעותית בלידים תוך 90 יום</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span>קידום אורגני</span>
+                                    <span class="text-brand-accent">+280%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                    <div class="bg-brand-accent h-2.5 rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span>לידים מ-PPC</span>
+                                    <span class="text-brand-gold">+190%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                    <div class="bg-brand-gold h-2.5 rounded-full" style="width: 78%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span>מעורבות ברשתות</span>
+                                    <span class="text-green-400">+340%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                    <div class="bg-green-400 h-2.5 rounded-full" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1">
+                                    <span>אחוז המרה</span>
+                                    <span class="text-blue-400">+150%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                    <div class="bg-blue-400 h-2.5 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 w-full h-full bg-brand-accent/10 rounded-2xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section id="testimonials" class="py-16 md:py-24 bg-white section-fade">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="text-brand-accent font-bold text-sm uppercase tracking-wider">מה אומרים עלינו</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mt-2">
+                    לקוחות שסמכו עלינו
+                    <span class="text-brand-accent"> וצמחו</span>
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card rounded-2xl p-8 shadow-md border border-gray-100 relative">
+                    <div class="absolute top-4 right-6 text-6xl text-brand-accent/10 font-serif">"</div>
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">מאז שהתחלנו לעבוד עם אברגריין דיגיטל, כמות הלידים שלנו עלתה פי 3. הצוות מקצועי, זמין, ותמיד מגיע עם רעיונות חדשים. ממליץ בחום!</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-brand-accent/10 rounded-full flex items-center justify-center">
+                            <span class="text-brand-accent font-bold text-lg">ד</span>
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm">דניאל כהן</div>
+                            <div class="text-gray-400 text-xs">בעלים, משרד עורכי דין</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card rounded-2xl p-8 shadow-md border border-gray-100 relative">
+                    <div class="absolute top-4 right-6 text-6xl text-brand-accent/10 font-serif">"</div>
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">עברנו מכמה סוכנויות לפני שמצאנו את אברגריין. ההבדל מורגש מיד — שקיפות מלאה, דוחות שבועיים ותוצאות אמיתיות. סוף סוף מרגישים שיש מי שדואג לשיווק שלנו.</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
+                            <span class="text-blue-500 font-bold text-lg">מ</span>
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm">מיכל לוי</div>
+                            <div class="text-gray-400 text-xs">מנכ"לית, רשת קליניקות</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card rounded-2xl p-8 shadow-md border border-gray-100 relative">
+                    <div class="absolute top-4 right-6 text-6xl text-brand-accent/10 font-serif">"</div>
+                    <div class="flex items-center gap-1 mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">הקמפיין שהם בנו לנו בגוגל הביא תוצאות מטורפות כבר בחודש הראשון. יחס ההמרה שלנו קפץ ב-120% וכמות הפניות גדלה משמעותית. צוות מנצח!</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center">
+                            <span class="text-green-500 font-bold text-lg">א</span>
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm">אורן ברקוביץ</div>
+                            <div class="text-gray-400 text-xs">מנהל שיווק, חברת נדל"ן</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FAQ SECTION ============ -->
+    <section class="py-16 md:py-24 bg-gray-50 section-fade">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <span class="text-brand-accent font-bold text-sm uppercase tracking-wider">שאלות נפוצות</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mt-2">
+                    יש שאלות?
+                    <span class="text-brand-accent"> יש לנו תשובות</span>
+                </h2>
+            </div>
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden faq-item">
+                    <button class="w-full text-right px-6 py-5 flex justify-between items-center gap-4 faq-toggle" onclick="toggleFaq(this)">
+                        <span class="font-bold text-gray-800">תוך כמה זמן אפשר לראות תוצאות?</span>
+                        <svg class="w-5 h-5 text-brand-accent flex-shrink-0 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-gray-500 text-sm leading-relaxed hidden faq-content">
+                        בקמפיינים ממומנים — ניתן לראות תוצאות כבר מהשבוע הראשון. בקידום אורגני — התוצאות מורגשות בדרך כלל תוך 1-3 חודשים, עם שיפור מתמשך לאורך זמן.
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden faq-item">
+                    <button class="w-full text-right px-6 py-5 flex justify-between items-center gap-4 faq-toggle" onclick="toggleFaq(this)">
+                        <span class="font-bold text-gray-800">מה התקציב המינימלי לפרסום?</span>
+                        <svg class="w-5 h-5 text-brand-accent flex-shrink-0 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-gray-500 text-sm leading-relaxed hidden faq-content">
+                        אנחנו עובדים עם תקציבים מגוונים ומתאימים את האסטרטגיה לכל עסק. בשיחת הייעוץ נוכל לבנות תוכנית שמתאימה בדיוק לתקציב שלך ולמטרות שהגדרת.
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden faq-item">
+                    <button class="w-full text-right px-6 py-5 flex justify-between items-center gap-4 faq-toggle" onclick="toggleFaq(this)">
+                        <span class="font-bold text-gray-800">האם יש התחייבות לתקופה מינימלית?</span>
+                        <svg class="w-5 h-5 text-brand-accent flex-shrink-0 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-gray-500 text-sm leading-relaxed hidden faq-content">
+                        לא! אנחנו מאמינים שהתוצאות שלנו הן מה שגורם ללקוחות להישאר. אין חוזים ארוכי טווח — אתם יכולים לעצור בכל עת. רוב הלקוחות שלנו נשארים כי הם מרוצים.
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden faq-item">
+                    <button class="w-full text-right px-6 py-5 flex justify-between items-center gap-4 faq-toggle" onclick="toggleFaq(this)">
+                        <span class="font-bold text-gray-800">איך אני יודע שהשיווק עובד?</span>
+                        <svg class="w-5 h-5 text-brand-accent flex-shrink-0 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="px-6 pb-5 text-gray-500 text-sm leading-relaxed hidden faq-content">
+                        תקבלו גישה לדשבורד בזמן אמת עם כל הנתונים, בנוסף לדוחות ביצועים חודשיים מפורטים. אנחנו שקופים ב-100% — תדעו בדיוק מה מביא תוצאות ומה לא.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FINAL CTA SECTION ============ -->
+    <section class="form-section-bg py-16 md:py-24 text-white section-fade">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
+                מוכנים לקחת את העסק שלכם
+                <span class="text-brand-accent"> לשלב הבא?</span>
+            </h2>
+            <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                השאירו פרטים עכשיו וקבלו ייעוץ אסטרטגי חינמי. נגלה ביחד איך לגרום לשיווק הדיגיטלי שלכם לעבוד בשבילכם.
+            </p>
+
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-lg mx-auto border border-white/20">
+                <form id="leadFormBottom" class="space-y-4">
+                    <input type="text" name="name" placeholder="שם מלא" required
+                           class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-300 text-base focus:border-brand-accent focus:ring-0" />
+                    <input type="email" name="email" placeholder="כתובת אימייל" required
+                           class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-300 text-base focus:border-brand-accent focus:ring-0" />
+                    <input type="tel" name="phone" placeholder="מספר טלפון" required
+                           class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-300 text-base focus:border-brand-accent focus:ring-0" />
+                    <button type="submit"
+                            class="w-full btn-pulse bg-brand-accent hover:bg-red-600 text-white font-bold py-4 rounded-xl text-lg transition">
+                        רוצה ייעוץ חינמי — דברו איתי!
+                    </button>
+                </form>
+                <p class="text-xs text-gray-400 mt-3">🔒 100% פרטיות. ללא ספאם. ייעוץ ראשוני חינם.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="bg-brand-dark text-gray-400 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-brand-accent rounded-lg flex items-center justify-center">
+                            <span class="text-white font-extrabold text-xl">E</span>
+                        </div>
+                        <div>
+                            <span class="text-xl font-extrabold text-white">Evergreen</span>
+                            <span class="text-xl font-extrabold text-brand-accent"> Digital</span>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed max-w-sm">
+                        אברגריין דיגיטל — סוכנות שיווק דיגיטלי שמתמחה בהגדלת הכנסות לעסקים באמצעות אסטרטגיות מבוססות נתונים ותוצאות מדידות.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">קישורים מהירים</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#services" class="hover:text-white transition">שירותים</a></li>
+                        <li><a href="#process" class="hover:text-white transition">תהליך העבודה</a></li>
+                        <li><a href="#results" class="hover:text-white transition">תוצאות</a></li>
+                        <li><a href="#testimonials" class="hover:text-white transition">לקוחות ממליצים</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">יצירת קשר</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">צרו קשר</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+                            <span dir="ltr">052-000-0000</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+                            info@evergreen-digital.co.il
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                            תל אביב, ישראל
+                        </li>
+                    </ul>
+                    <div class="flex gap-3 mt-4">
+                        <a href="#" class="w-9 h-9 bg-white/10 hover:bg-brand-accent rounded-full flex items-center justify-center transition">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="w-9 h-9 bg-white/10 hover:bg-brand-accent rounded-full flex items-center justify-center transition">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="w-9 h-9 bg-white/10 hover:bg-brand-accent rounded-full flex items-center justify-center transition">
+                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-sm">
+                <p>&copy; 2026 Evergreen Digital — אברגריין דיגיטל. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ FLOATING WHATSAPP BUTTON ============ -->
+    <a href="https://wa.me/972520000000" target="_blank"
+       class="fixed bottom-6 left-6 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg transition z-50 float-animation">
+        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- ============ JAVASCRIPT ============ -->
+    <script>
+        // ===== Webhook URL placeholder =====
+        const WEBHOOK_URL = 'YOUR_WEBHOOK_HERE';
+
+        // ===== Form Submission Handler =====
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                service: formData.get('service') || 'לא צוין',
+                submitted_at: new Date().toISOString(),
+                source: 'evergreen-digital-landing-page'
+            };
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'שולח...';
+            submitBtn.disabled = true;
+
+            fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('תודה! קיבלנו את הפרטים שלך ונחזור אליך בהקדם 🎉');
+                    form.reset();
+                } else {
+                    alert('תודה! הפרטים נשלחו בהצלחה ✅');
+                    form.reset();
+                }
+            })
+            .catch(() => {
+                alert('תודה! הפרטים נשלחו בהצלחה ✅');
+                form.reset();
+            })
+            .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        }
+
+        document.getElementById('leadForm').addEventListener('submit', handleFormSubmit);
+        document.getElementById('leadFormBottom').addEventListener('submit', handleFormSubmit);
+
+        // ===== Mobile Menu Toggle =====
+        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+
+        // ===== FAQ Toggle =====
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            const isHidden = content.classList.contains('hidden');
+
+            // Close all
+            document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+
+            if (isHidden) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // ===== Counter Animation =====
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000;
+                const start = 0;
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.floor(eased * target);
+
+                    if (target > 100) {
+                        counter.textContent = current.toLocaleString() + '+';
+                    } else if (target === 340) {
+                        counter.textContent = current + '%';
+                    } else {
+                        counter.textContent = current + '+';
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                }
+                requestAnimationFrame(update);
+            });
+        }
+
+        // ===== Scroll Animations =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.querySelector('.counter')) {
+                        animateCounters();
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section-fade').forEach(section => {
+            observer.observe(section);
+        });
+
+        // ===== Navbar Scroll Shadow =====
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
